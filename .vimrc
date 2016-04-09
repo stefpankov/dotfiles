@@ -3,7 +3,7 @@ set hidden                          " Switch between buffers without having to s
 
 set autoread                        " Set to auto read when a file is changed from the outside.
 
-so ~/.vim/plugins.vim               "Source the plugins file.
+so ~/dotfiles/plugins.vim               "Source the plugins file.
 
 syntax enable                       " Enable syntax highlighting.
 
@@ -46,7 +46,7 @@ set t_CO=256                                " Set terminal colors to 256.
 
 "Use ':set guifont=* to select a new font
 "Then use 'set guifont?' to check the correct font name and set it here
-set guifont=Source\ Code\ Pro\ 14
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
 
 set guioptions-=l                   "Remove left-hand scrollbar
 set guioptions-=L                   "Remove left-hand scrollbar when split
@@ -172,9 +172,7 @@ nnoremap Y y$
 " Map leader+e+v to open a new buffer with the Vimrc file so it's easier to edit.
 nnoremap <Leader>ev :e ~/.vimrc<cr>
 "Edit vim plugins file
-nnoremap <Leader>ep :e ~/.vim/plugins.vim<cr>
-"Edit the snippets file with leader+e+s then write the language name
-nnoremap <Leader>es :e ~/.vim/snippets/
+nnoremap <Leader>ep :e ~/dotfiles/plugins.vim<cr>
 
 nnoremap <c-l> :bnext<cr>
 nnoremap <c-h> :bprevious<cr>
