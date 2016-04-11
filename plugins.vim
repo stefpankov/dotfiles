@@ -24,15 +24,13 @@ Plugin 'skwp/greplace.vim'                  "Global search and replace
 " Vim airline and bufferline
 " ---------------------------
 Plugin 'vim-airline/vim-airline'            "Vim airline plugin
-Plugin 'bling/vim-bufferline'               "Show open buffers in airline
 
 
 " Colorschemes
 " -------------------------------
-Plugin 'wesQ3/wombat.vim'                   "Wombat colorscheme
-Plugin 'morhetz/gruvbox'                    "Gruvbox colorscheme
 Plugin 'romainl/flattened'                  "Flattened colorscheme
-
+Plugin 'vim-scripts/Visual-Studio'
+Plugin 'chriskempson/base16-vim'
 
 " Plugins for snippets
 " ------------------------------------
@@ -49,7 +47,9 @@ Plugin 'stephpy/vim-yaml'                   "Yaml syntax highlighting
 Plugin 'tpope/vim-haml'                     "Haml, Sass and SCSS runtime files
 Plugin 'StanAngeloff/php.vim'               "Better PHP syntax
 Plugin 'keith/tmux.vim'                     "tmux configuration file highlighting
-Plugin 'ElmCast/elm-vim'                    "Elm language support
+Plugin 'pangloss/vim-javascript'            "Better javascript support
+Plugin 'mxw/vim-jsx'                        "React JSX support
+
 
 
 " Code editing helpers
