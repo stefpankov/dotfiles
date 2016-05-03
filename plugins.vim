@@ -29,8 +29,8 @@ Plugin 'vim-airline/vim-airline'            "Vim airline plugin
 " Colorschemes
 " -------------------------------
 Plugin 'romainl/flattened'                  "Flattened colorscheme
-Plugin 'vim-scripts/Visual-Studio'
 Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
 
 " Plugins for snippets
 " ------------------------------------

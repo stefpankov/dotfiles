@@ -21,7 +21,7 @@ set so=7                            " Set 7 lines to the cursor(above and bellow
 
 set ruler                           " Always show current position
 
-set colorcolumn=90
+"set colorcolumn=90
 
 set backspace=indent,eol,start      " Make backspace behave like other editors
 
@@ -40,10 +40,10 @@ set noeb vb t_vb=                           " No beeping sounds.
 set guiheadroom=0                           " Stop the ugly white line at the bottom from showing up after sourcing the .vimrc file 
 
 set background=dark
-colorscheme base16-solarized                " Set colorscheme
+colorscheme gruvbox                         " Set colorscheme
 
 " Custom matching parenteses highlights
-hi  MatchParen                              cterm=NONE  ctermfg=1  ctermbg=10  guifg=#2E334A  guibg=#586E75  gui=NONE
+"hi  MatchParen                              cterm=NONE  ctermfg=1  ctermbg=10  guifg=#2E334A  guibg=#586E75  gui=NONE
 
 set t_CO=256                                " Set terminal colors to 256. 
 
