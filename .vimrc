@@ -168,6 +168,10 @@ nnoremap <C-right>  <C-W><
 " Mappings/Bindings
 "----------------------------------------------------------------------------------------
 
+" Map Leader + q to execute the recording in the q register
+" =========================================================
+nnoremap <Leader>q @q
+
 " Map ; to enter command mode
 "============================
 nnoremap ; :

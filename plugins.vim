@@ -60,6 +60,7 @@ Plugin 'mattn/emmet-vim'                    "Emmet in Vim!
 Plugin 'jiangmiao/auto-pairs'               "Auto close brackets and such
 Plugin 'godlygeek/tabular'                  "Align items in column e.g align variables by = sign
 Plugin 'tobyS/pdv'                          "PHP Documentation block generator
+Plugin 'tpope/vim-sleuth'                   "Heuristically set buffer options like indent and stuff
 
 " Misc plugins
 " ---------------------------------------
