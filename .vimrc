@@ -211,6 +211,10 @@ nnoremap <Leader>ev :e ~/.vimrc<cr>
 "=====================
 nnoremap <Leader>ep :e ~/dotfiles/plugins.vim<cr>
 
+"Edit tmux config file
+"====================
+nnoremap <Leader>et :e ~/dotfiles/.tmux.conf<cr>
+
 " Previous and next buffers
 "==========================
 nnoremap <c-l> :bnext<cr>
