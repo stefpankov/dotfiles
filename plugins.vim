@@ -69,6 +69,7 @@ Plugin 'tpope/vim-eunuch'                   "helpers for UNIX
 " ---------------------------------------
 Plugin 'tobyS/vmustache'                    "Vim script templating language
 Plugin 'tmux-plugins/vim-tmux-focus-events' "Fix FocusGained and FocusLost autocommand events in vim from tmux
+Plugin 'danro/rename.vim'                   "Rename the current file in the vim buffer + retain relative path.
 
 
 
