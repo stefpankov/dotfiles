@@ -49,6 +49,7 @@ Plugin 'StanAngeloff/php.vim'               "Better PHP syntax
 Plugin 'keith/tmux.vim'                     "tmux configuration file highlighting
 Plugin 'pangloss/vim-javascript'            "Better javascript support
 Plugin 'mxw/vim-jsx'                        "React JSX support
+Plugin 'posva/vim-vue'                      "Vue files support
 
 
 
