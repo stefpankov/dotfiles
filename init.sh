@@ -14,3 +14,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/powerline/fonts.git ~/Downloads/vimfonts/
 bash ~/Downloads/vimfonts/install.sh
 rm -rf ~/Downloads/vimfonts/
+
+#Create a symbolic link for the UltiSnip snippet files
+ln -s ~/dotfiles/UltiSnips/php.snippets ~/.vim/UltiSnips/php.snippets

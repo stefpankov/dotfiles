@@ -276,9 +276,18 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " Make NERDTree easier to toggle.
 "nmap <Leader>nt :NERDTreeToggle<cr>
 
+
 " ~~~ Supertab ~~~
 "~~~~~~~~~~~~~~~~~~
 let g:SuperTabDefaultCompletionType = "context"
+
+
+" ~~~ UltiSnips ~~~
+"~~~~~~~~~~~~~~~~~~~
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 " ~~~ CtrlP ~~~
 "~~~~~~~~~~~~~~~
@@ -387,9 +396,6 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " This is where i put my notes about latest bindings and stuff like that
 "----------------------------------------------------------------------------------------
 
-" NOTE: LEADER+y => Yank selection from visual mode to clipboard [visual]
-" NOTE: LEADER+p => Paste from cliboard [normal]
-
 " LEADER+e open the most recently used files.
 
 " Use gg=G to reindent the whole buffer. NOTE: = can be used to indent visual
@@ -416,5 +422,5 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " --- VISUAL BLOCK MODE ---
 " Use CTRL+V to enter Visual Block Mode and do magical things
 " example: select a block of text and press I to enter visual block insert
-" where everything that's written on the first line will be inserted on every
-" next line of the block
+" where everything that's written on the first line
+" will be inserted on every next line of the block

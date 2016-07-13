@@ -15,6 +15,7 @@ Plugin 'mhinz/vim-startify'                 "Better start screen
 Plugin 'ervandew/supertab'                  "Tab completion
 
 
+
 " Search and replace
 " ---------------------
 Plugin 'rking/ag.vim'                       "Front for the silver searcher, fast pattern matching through files anywhere
@@ -71,6 +72,7 @@ Plugin 'tpope/vim-eunuch'                   "helpers for UNIX
 Plugin 'tobyS/vmustache'                    "Vim script templating language
 Plugin 'tmux-plugins/vim-tmux-focus-events' "Fix FocusGained and FocusLost autocommand events in vim from tmux
 Plugin 'danro/rename.vim'                   "Rename the current file in the vim buffer + retain relative path.
+Plugin 'unblevable/quick-scope'             "Which characters to target for f, F and family
 
 
 
