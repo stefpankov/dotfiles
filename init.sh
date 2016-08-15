@@ -12,7 +12,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #Setup dein for neovim plugins
 mkdir ./dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ./dein/installer.sh
-sh ./installer.sh ~/.config/nvim/dein
+sh ./dein/installer.sh ~/.config/nvim/dein
 rm -r ./dein/
 #Clone tpm for managing tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
