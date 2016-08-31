@@ -98,9 +98,6 @@ let mapleader=','
 let g:mapleader=','
 nmap <Space> <Leader>
 
-" Map Leader + q to execute the recording in the q register
-" =========================================================
-nnoremap <Leader>q @q
 
 " Map ; to enter command mode
 "============================
@@ -147,6 +144,10 @@ nnoremap <Leader>et :e ~/dotfiles/.tmux.conf<cr>
 "==========================
 nnoremap <c-l> :bnext<cr>
 nnoremap <c-h> :bprevious<cr>
+
+" Delete current buffer
+"======================
+nnoremap <Leader>q :bd<cr>
 
 " Map leader+space to disable the search highlight.
 "==================================================
