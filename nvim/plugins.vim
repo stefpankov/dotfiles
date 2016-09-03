@@ -50,7 +50,7 @@ Plug 'tpope/vim-haml', { 'for': ['haml', 'sass', 'scss'] }  "Haml, Sass and SCSS
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }     "Javascript better indent
 Plug 'StanAngeloff/php.vim', { 'for': ['php', 'phtml'] }    "Better PHP syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }                      "Vue components syntax
-Plug 'elixir-lang/vim-elixir', { 'for': 'exs' }             "Elixir syntax
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }             "Elixir syntax
 Plug 'keith/tmux.vim'                                       "tmux configuration file highlighting
 
 
