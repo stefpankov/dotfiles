@@ -75,6 +75,13 @@ Plug 'duggiefresh/vim-easydir'            "Automatically create directory(if it 
 Plug 'danro/rename.vim'                   "Rename the current file in the vim buffer + retain relative path.
 
 
+" Misc plugins
+" ---------------------------------------
+Plug 'tpope/vim-fugitive'                 "A git wrapper for vim
+
+
+
+
 
 
 " Add plugins to &runtimepath
