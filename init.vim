@@ -197,7 +197,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 "--- NERDTree ---
 "----------------
-"let NERDTreeHijackNetrw = 0
+" let NERDTreeHijackNetrw = 0
 " Make NERDTree easier to toggle.
 nmap <Leader>nt :NERDTreeToggle<cr>
 
@@ -209,9 +209,9 @@ nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 "--- UltiSnips ---
 "-----------------
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<leader>us"
+let g:UltiSnipsJumpForwardTrigger="<leader>us"
+let g:UltiSnipsJumpBackwardTrigger="<leader>ub"
 
 
 "--- YouCompleteMe ---

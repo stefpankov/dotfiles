@@ -23,4 +23,4 @@ mkdir -p ~/.config/nvim/UltiSnips
 ln -s ~/dotfiles/UltiSnips/php.snippets ~/.config/nvim/UltiSnips/php.snippets
 
 #Give instructions for fonts
-echo "Downloads good terminal fonts eg. Input Mono"
+echo "Download good terminal fonts eg. Input Mono"
