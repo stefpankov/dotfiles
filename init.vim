@@ -101,7 +101,7 @@ nmap <Space> <Leader>
 
 " Map ; to enter command mode
 "============================
-nnoremap ; :
+"nnoremap ; :
 
 " Map jj to enter normal mode from insert mode
 "=============================================
@@ -152,6 +152,12 @@ nnoremap <Leader>q :bd<cr>
 " Map leader+space to disable the search highlight.
 "==================================================
 nnoremap <Leader><space> :nohlsearch<cr>
+
+
+" Abbreviation that expands to the directory of buffer, useful for things like
+" wanting to edit/create a file in the current buffer's directory
+"=============================================================================
+cabbr <expr> %% expand('%:h')
 
 
 " Specify the behavior when switching between buffers 
