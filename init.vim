@@ -147,7 +147,7 @@ nnoremap <c-h> :bprevious<cr>
 
 " Delete current buffer
 "======================
-nnoremap <Leader>q :bd<cr>
+nnoremap <Leader>q :bp<cr>:bd #<cr>
 
 " Map leader+space to disable the search highlight.
 "==================================================
