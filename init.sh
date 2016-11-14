@@ -1,4 +1,4 @@
-#!/bin/bash/
+#!/bin/bash
 
 #Create a symbolic link to the vimrc in this folder
 ln -s ~/dotfiles/.vimrc ~/.vimrc

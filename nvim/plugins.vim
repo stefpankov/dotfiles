@@ -26,12 +26,13 @@ Plug 'SirVer/ultisnips'               "Ultisnips plugin for snippets
 " ------------------------------------
 Plug 'Valloric/ycmd'                                    "YouCompleteMe server
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "YouCompleteMe plugin for code completion
-Plug 'ervandew/supertab'                                "Supertab
+Plug 'ervandew/supertab'                                "Supertab 
 
 
 " Colorschemes
 " ------------------------------------
 Plug 'mhartington/oceanic-next'
+Plug 'KeitaNakamura/neodark.vim'
 
 
 " Vim airline and bufferline
@@ -50,21 +51,23 @@ Plug 'tpope/vim-haml', { 'for': ['haml', 'sass', 'scss'] }  "Haml, Sass and SCSS
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }     "Javascript better indent
 Plug 'StanAngeloff/php.vim', { 'for': ['php', 'phtml'] }    "Better PHP syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }                      "Vue components syntax
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }             "Elixir syntax
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }          "Elixir syntax
 Plug 'keith/tmux.vim'                                       "tmux configuration file highlighting
 
 
 " Code editing helpers
 " ---------------------------------------
-Plug 'tpope/vim-surround'                 "Quoting/parenthesizing made simple
-Plug 'nathanaelkane/vim-indent-guides'    "Indent guides plugin
-Plug 'mattn/emmet-vim'                    "Emmet in Vim!
-Plug 'jiangmiao/auto-pairs'               "Auto close brackets and such
-Plug 'godlygeek/tabular'                  "Align items in column e.g align variables by = sign
-Plug 'tobyS/pdv', { 'for': 'php' }        "PHP Documentation block generator
-Plug 'heavenshell/vim-jsdoc'              "Javascript Documentation block generator
-Plug 'tpope/vim-sleuth'                   "Heuristically set buffer options like indent and stuff
-Plug 'tpope/vim-eunuch'                   "helpers for UNIX
+Plug 'tpope/vim-surround'                           "Quoting/parenthesizing made simple
+Plug 'nathanaelkane/vim-indent-guides'              "Indent guides plugin
+Plug 'mattn/emmet-vim'                              "Emmet in Vim!
+Plug 'jiangmiao/auto-pairs'                         "Auto close brackets and such
+Plug 'godlygeek/tabular'                            "Align items in column e.g align variables by = sign
+Plug 'tobyS/pdv', { 'for': 'php' }                  "PHP Documentation block generator
+Plug 'heavenshell/vim-jsdoc', { 'for': 'js' }       "Javascript Documentation block generator
+Plug 'tpope/vim-sleuth'                             "Heuristically set buffer options like indent and stuff
+Plug 'tpope/vim-eunuch'                             "helpers for UNIX
+Plug 'editorconfig/editorconfig-vim'                "Editorconfig vim plugin
+Plug 'scrooloose/nerdcommenter'                     "Comment/uncomment code easily
 
 
 " Misc plugins
@@ -75,7 +78,7 @@ Plug 'duggiefresh/vim-easydir'            "Automatically create directory(if it 
 Plug 'danro/rename.vim'                   "Rename the current file in the vim buffer + retain relative path.
 
 
-" Misc plugins
+" Git related
 " ---------------------------------------
 Plug 'tpope/vim-fugitive'                 "A git wrapper for vim
 

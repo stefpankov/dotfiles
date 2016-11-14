@@ -78,7 +78,6 @@ set smartcase
 
 set guiheadroom=0                           " Stop the ugly white line at the bottom from showing up after sourcing the .vimrc file 
 
-set background=dark
 colorscheme OceanicNext                     " Set colorscheme
 
 set termguicolors                           " Set terminal colors to 256. 
@@ -210,7 +209,7 @@ nmap <Leader>nt :NERDTreeToggle<cr>
 
 "--- PHP Documentator for Vim ---
 "--------------------------------
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 "--- UltiSnips ---
@@ -252,6 +251,15 @@ nmap <Leader>r :CtrlPBufTag<cr>
 " Map Leader+e open the most recently used files.
 "================================================
 nmap <Leader>e :CtrlPMRUFiles<cr>
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 "--- Emmet ---
 "-------------
