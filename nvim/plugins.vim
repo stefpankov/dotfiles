@@ -53,6 +53,7 @@ Plug 'StanAngeloff/php.vim', { 'for': ['php', 'phtml'] }    "Better PHP syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }                      "Vue components syntax
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }          "Elixir syntax
 Plug 'keith/tmux.vim'                                       "tmux configuration file highlighting
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }  "Typescript support
 
 
 " Code editing helpers
