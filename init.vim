@@ -46,6 +46,10 @@ set wrap	        " Wrap lines
 "==========================================================
 set breakindent
 
+" Live, incremental commands (example when doing a search and replace)
+"=====================================================================
+set inccommand=split
+
 
 
 "----------------------------------------------------------------------------------------
@@ -231,6 +235,18 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+"--- Deoplete ---
+"----------------
+let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+"--- Deoplete Padawan ---
+"------------------------
+command! StartPadawan call deoplete#sources#padawan#StartServer()
+command! StopPadawan call deoplete#sources#padawan#StopServer()
+command! RestartPadawan call deoplete#sources#padawan#RestartServer()
 
 
 "--- CtrlP ---
