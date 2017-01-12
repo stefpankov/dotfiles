@@ -28,6 +28,7 @@ Plug 'SirVer/ultisnips'               "Ultisnips plugin for snippets
 "Plug 'ervandew/supertab'                                "Supertab 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/deoplete-padawan'
+Plug 'Shougo/neoinclude.vim'
 
 
 " Colorschemes
@@ -63,11 +64,12 @@ Plug 'mattn/emmet-vim'                                             "Emmet in Vim
 Plug 'jiangmiao/auto-pairs'                                        "Auto close brackets and such
 Plug 'godlygeek/tabular'                                           "Align items in column e.g align variables by = sign
 Plug 'tobyS/pdv', { 'for': 'php' }                                 "PHP Documentation block generator
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'vue'] }       "Javascript Documentation block generator
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'vue'] }     "Javascript Documentation block generator
 Plug 'tpope/vim-sleuth'                                            "Heuristically set buffer options like indent and stuff
 Plug 'tpope/vim-eunuch'                                            "helpers for UNIX
 Plug 'editorconfig/editorconfig-vim'                               "Editorconfig vim plugin
 Plug 'scrooloose/nerdcommenter'                                    "Comment/uncomment code easily
+Plug 'noahfrederick/vim-composer'                                  "Composer projects helper
 
 
 " Misc plugins
@@ -90,5 +92,5 @@ Plug 'tpope/vim-fugitive'                 "A git wrapper for vim
 " Add plugins to &runtimepath
 call plug#end()
 
-" Required:
+" Required
 filetype plugin indent on

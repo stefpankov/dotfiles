@@ -248,6 +248,10 @@ command! StartPadawan call deoplete#sources#padawan#StartServer()
 command! StopPadawan call deoplete#sources#padawan#StopServer()
 command! RestartPadawan call deoplete#sources#padawan#RestartServer()
 
+"--- Composer ---
+"----------------
+autocmd User Composer nmap <buffer> <Leader>gf <Plug>(composer-find)
+autocmd User Composer nmap <buffer> <Leader>gu <Plug>(composer-use)
 
 "--- CtrlP ---
 "-------------
