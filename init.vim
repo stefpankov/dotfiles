@@ -2,13 +2,15 @@ set hidden                          " Switch between buffers without having to s
 
 so ~/dotfiles/nvim/plugins.vim       " Source the plugins file.
 
-set number                          " Activate line numbers.
+set number relativenumber                          " Activate line numbers.
 set so=7                            " Set 7 lines to the cursor(above and bellow) - when moving vertically using j/k
 
 set ruler                           " Always show current position
 
 set cmdheight=1                     " Height of the command bar
 
+set cursorcolumn
+set cursorline
 
 
 
@@ -80,9 +82,10 @@ set smartcase
 
 "au GUIEnter * simalt ~x                    " Start gVim maximized.
 
-set guiheadroom=0                           " Stop the ugly white line at the bottom from showing up after sourcing the .vimrc file 
+"set guiheadroom=0                          " Stop the ugly white line at the bottom from showing up after sourcing the .vimrc file 
 
-colorscheme OceanicNext                     " Set colorscheme
+set background=dark " or light if you prefer the light version
+colo seoul256
 
 set termguicolors                           " Set terminal colors to 256. 
 
@@ -101,10 +104,6 @@ let mapleader=','
 let g:mapleader=','
 nmap <Space> <Leader>
 
-
-" Map ; to enter command mode
-"============================
-"nnoremap ; :
 
 " Map jj to enter normal mode from insert mode
 "=============================================
@@ -189,15 +188,15 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing white space on save
 "===========================================================================
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.php :call DeleteTrailingWS()
 
 
 "----------------------------------------------------------------------------------------
@@ -216,6 +215,7 @@ nmap <Leader>nt :NERDTreeToggle<cr>
 let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
+
 "--- UltiSnips ---
 "-----------------
 let g:UltiSnipsExpandTrigger="<leader>us"
@@ -223,35 +223,31 @@ let g:UltiSnipsJumpForwardTrigger="<leader>us"
 let g:UltiSnipsJumpBackwardTrigger="<leader>ub"
 
 
-"--- YouCompleteMe ---
-"---------------------
-
-" Remove preview window after completion
-"=======================================
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-" make YCM compatible with UltiSnips (using supertab)
-"====================================================
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-"--- Deoplete ---
-"----------------
-let g:deoplete#enable_at_startup = 1
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-"--- Deoplete Padawan ---
-"------------------------
-command! StartPadawan call deoplete#sources#padawan#StartServer()
-command! StopPadawan call deoplete#sources#padawan#StopServer()
-command! RestartPadawan call deoplete#sources#padawan#RestartServer()
-
 "--- Composer ---
 "----------------
 autocmd User Composer nmap <buffer> <Leader>gf <Plug>(composer-find)
 autocmd User Composer nmap <buffer> <Leader>gu <Plug>(composer-use)
+
+
+"--- Nvim Completion Framework - NCM ---
+"---------------------------------------
+autocmd FileType php LanguageClientStart
+
+" Use Tab completion with NCM.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+"--- ALE - Linting engine ---
+"----------------------------
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['standard'],
+\}
+
 
 "--- CtrlP ---
 "-------------
@@ -281,13 +277,13 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+
 "--- Emmet ---
 "-------------
 
 " Remap Emmet leader to Ctrl+E
 "=============================
 let g:user_emmet_leader_key='<c-E>'
-
 
 
 "--- Vim Indent Guides ---
@@ -298,26 +294,20 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 
 
-"--- Airline ---
-"---------------
+"--- Javascript syntax ---
+"-------------------------
 
-"Fix the airline bar not showing special chars
-"=============================================
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = ''
-let g:airline_right_sep = '«'
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 0
-
-
+" Set syntax highlighting for jsDoc comments.
+let g:javascript_plugin_jsdoc = 1
 
 "--- Vue syntax ---
 "------------------
-"Set .vue files to html files for better syntax highlighting and indentation
-"===========================================================================
+
+" Set .vue files to html files for better syntax highlighting and indentation
 autocmd BufNewFile,BufRead *.vue set filetype=html
+
+" Fix broken syntax highlighting.
+autocmd FileType vue syntax sync fromstart
 
 
 "----------------------------------------------------------------------------------------
@@ -328,5 +318,109 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 "=============================================
 augroup autosourcing
     autocmd!
-    autocmd BufWritePost init.vim source % | AirlineRefresh
+    autocmd BufWritePost init.vim source %
 augroup END
+
+
+"----------------------------------------------------------------------------------------
+" Statusline
+"----------------------------------------------------------------------------------------
+
+let g:currentmode={
+    \ 'n'  : 'Normal ',
+    \ 'no' : 'N-Operator Pending ',
+    \ 'v'  : 'Visual ',
+    \ 'V'  : 'V-Line ',
+    \ '^V' : 'V-Block ',
+    \ 's'  : 'Select ',
+    \ 'S'  : 'S-Line ',
+    \ '^S' : 'S-Block ',
+    \ 'i'  : 'Insert ',
+    \ 'R'  : 'Replace ',
+    \ 'Rv' : 'V-Replace ',
+    \ 'c'  : 'Command ',
+    \ 'cv' : 'Vim Ex ',
+    \ 'ce' : 'Ex ',
+    \ 'r'  : 'Prompt ',
+    \ 'rm' : 'More ',
+    \ 'r?' : 'Confirm ',
+    \ '!'  : 'Shell ',
+    \ 't'  : 'Terminal '
+    \}
+
+" Automatically change the statusline color depending on mode
+function! ChangeStatuslineColor()
+  if (mode() =~# '\v(n|no)')
+    exe 'hi! StatusLine ctermfg=008'
+  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V-Block' || get(g:currentmode, mode(), '') ==# 't')
+    exe 'hi! StatusLine ctermfg=005'
+  elseif (mode() ==# 'i')
+    exe 'hi! StatusLine ctermfg=004'
+  else
+    exe 'hi! StatusLine ctermfg=006'
+  endif
+
+  return ''
+endfunction
+
+" Find out current buffer's size and output it.
+function! FileSize()
+  let bytes = getfsize(expand('%:p'))
+  if (bytes >= 1024)
+    let kbytes = bytes / 1024
+  endif
+  if (exists('kbytes') && kbytes >= 1000)
+    let mbytes = kbytes / 1000
+  endif
+
+  if bytes <= 0
+    return '0'
+  endif
+
+  if (exists('mbytes'))
+    return mbytes . 'MB '
+  elseif (exists('kbytes'))
+    return kbytes . 'KB '
+  else
+    return bytes . 'B '
+  endif
+endfunction
+
+function! ReadOnly()
+  if &readonly || !&modifiable
+    return ''
+  else
+    return ''
+endfunction
+
+function! GitInfo()
+  let git = fugitive#head()
+  if git != ''
+    return ' '.fugitive#head()
+  else
+    return ''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
+set statusline+=%0*\ %{g:currentmode[mode()]}            " Current mode
+set statusline+=%8*\ [buffer:%n]                         " buffernr
+set statusline+=%8*\ %{GitInfo()}                        " Git Branch name
+set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
+set statusline+=%#warningmsg#
+set statusline+=%*
+set statusline+=%9*\ %=                                  " Space
+set statusline+=%8*\ %y\                                 " FileType
+set statusline+=%7*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding Fileformat
+set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
+set statusline+=%0*\ %3p%%\ \ %l/\%L\ %3c\              " Rownumber/total (%)
+
+hi User1 ctermfg=007
+hi User2 ctermfg=008
+hi User3 ctermfg=008
+hi User4 ctermfg=008
+hi User5 ctermfg=008
+hi User7 ctermfg=008
+hi User8 ctermfg=008
+hi User9 ctermfg=007
