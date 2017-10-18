@@ -326,42 +326,6 @@ augroup END
 " Statusline
 "----------------------------------------------------------------------------------------
 
-let g:currentmode={
-    \ 'n'  : 'Normal ',
-    \ 'no' : 'N-Operator Pending ',
-    \ 'v'  : 'Visual ',
-    \ 'V'  : 'V-Line ',
-    \ '^V' : 'V-Block ',
-    \ 's'  : 'Select ',
-    \ 'S'  : 'S-Line ',
-    \ '^S' : 'S-Block ',
-    \ 'i'  : 'Insert ',
-    \ 'R'  : 'Replace ',
-    \ 'Rv' : 'V-Replace ',
-    \ 'c'  : 'Command ',
-    \ 'cv' : 'Vim Ex ',
-    \ 'ce' : 'Ex ',
-    \ 'r'  : 'Prompt ',
-    \ 'rm' : 'More ',
-    \ 'r?' : 'Confirm ',
-    \ '!'  : 'Shell ',
-    \ 't'  : 'Terminal '
-    \}
-
-" Automatically change the statusline color depending on mode
-function! ChangeStatuslineColor()
-  if (mode() =~# '\v(n|no)')
-    exe 'hi! StatusLine ctermfg=008'
-  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V-Block' || get(g:currentmode, mode(), '') ==# 't')
-    exe 'hi! StatusLine ctermfg=005'
-  elseif (mode() ==# 'i')
-    exe 'hi! StatusLine ctermfg=004'
-  else
-    exe 'hi! StatusLine ctermfg=006'
-  endif
-
-  return ''
-endfunction
 
 " Find out current buffer's size and output it.
 function! FileSize()
@@ -401,26 +365,39 @@ function! GitInfo()
     return ''
 endfunction
 
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    if l:counts.total == 0
+        hi User3 guibg='#0fc63a'
+        return 'OK'
+    endif
+
+    hi User3 guibg='#f44242'
+    return printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
 set laststatus=2
 set statusline=
-set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
-set statusline+=%0*\ %{g:currentmode[mode()]}            " Current mode
-set statusline+=%8*\ [buffer:%n]                         " buffernr
-set statusline+=%8*\ %{GitInfo()}                        " Git Branch name
-set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
+set statusline+=%1*\ [buff:%n]\                          " buffernr
+set statusline+=%2*\ %<%F\ %{ReadOnly()}\ %m\ %w         " File+path
+set statusline+=%1*\ %{GitInfo()}\                       " Git Branch name
 set statusline+=%#warningmsg#
-set statusline+=%*
-set statusline+=%9*\ %=                                  " Space
-set statusline+=%8*\ %y\                                 " FileType
-set statusline+=%7*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding Fileformat
-set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
-set statusline+=%0*\ %3p%%\ \ %l/\%L\ %3c\              " Rownumber/total (%)
+set statusline+=%2*
+set statusline+=%3*\ linter:\ %{LinterStatus()}\         "Show linter errors"
+set statusline+=%*\ %=                                   " Space
+set statusline+=%2*\ %y\                                 " FileType
+set statusline+=%2*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding Fileformat
+set statusline+=%2*\ %-3(%{FileSize()}%)                 " File size
+set statusline+=%1*\ %3p%%\ \ %l/\%L\ %3c\              " Rownumber/total (%)
 
-hi User1 ctermfg=007
-hi User2 ctermfg=008
-hi User3 ctermfg=008
-hi User4 ctermfg=008
-hi User5 ctermfg=008
-hi User7 ctermfg=008
-hi User8 ctermfg=008
-hi User9 ctermfg=007
+hi User1 ctermbg=130 ctermfg=128 guifg='#fafafa' guibg='#0a8484'
+hi User2 ctermbg=130 ctermfg=128 guifg='#444444' guibg='#d8af34'
+hi User3 ctermbg=130 ctermfg=128 guifg='#fafafa' guibg='#f44242'

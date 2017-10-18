@@ -43,6 +43,7 @@ Plug 'junegunn/seoul256.vim'
 " Vim airline and bufferline
 " ------------------------------------
 "Plug 'vim-airline/vim-airline'        "Vim airline plugin
+Plug 'ap/vim-buftabline'
 
 
 " Syntax Highlighting & Related shit
